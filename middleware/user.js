@@ -4,7 +4,7 @@ const validateBody = (req, res, next) => {
     if (req.body.email && req.body.password) {
         return next();
     }
-    return res.status(400).json({message: 'Please enter a valid username or password'});
+    return res.status(400).json({message: 'Please enter a valid email or password'});
 }
 
 const checkUser = async (req, res, next) => { 

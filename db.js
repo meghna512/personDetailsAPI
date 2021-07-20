@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const database = async () => {
+const connectDatabase = async () => {
     try {
         await mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`, {
             useNewUrlParser: true,
@@ -9,7 +9,7 @@ const database = async () => {
             useFindAndModify: false,
             useCreateIndex: true
         });
-        console.log("db connected");
+        console.log("connected to database");
 
     } catch (err) {
         console.log(err);
@@ -18,5 +18,5 @@ const database = async () => {
 
 
 module.exports = {
-    database
+    connectDatabase
 };

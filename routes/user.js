@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {createUser, loginUser,updateUser,listUser, listAllUsers} = require('../controller/user');
+const {createUser, loginUser,updateUser,allUsersDetails, userDetails} = require('../controller/user');
 const {validateBody, checkUser} = require('../middleware/user');
 
 //login
@@ -12,9 +12,9 @@ router.post('/signup', createUser);
 router.patch('/:userUid', checkUser, updateUser);
 
 //show user details
-router.get('/:userUid', checkUser, listUser);
+router.get('/:userUid', checkUser, userDetails);
 
 //show all users datails
-router.get('/', listAllUsers);
+router.get('/', allUsersDetails);
 
 module.exports = router;

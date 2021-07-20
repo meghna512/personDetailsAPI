@@ -40,7 +40,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ message: "Incorrect password" });
         }
     } else {
-        return res.status(404).json({ message: 'user not found' });
+        return res.status(404).json({ message: 'User not found' });
     }
     return res.status(201).json({ token });
 }
@@ -59,7 +59,7 @@ const updateUser = async (req, res) => {
 
 }
 
-const listUser = async (req, res) => {
+const userDetails = async (req, res) => {
     if (res.locals.user) {
         return res.status(200).json(res.locals.user);
     }
@@ -74,7 +74,7 @@ const listUser = async (req, res) => {
 
 }
 
-const listAllUsers = async (req, res) => {
+const allUsersDetails = async (req, res) => {
     if (res.locals.user) {
         return res.status(200).json(res.locals.user);
     }
@@ -88,12 +88,10 @@ const listAllUsers = async (req, res) => {
 
 }
 
-
-
 module.exports = {
     createUser,
     loginUser,
     updateUser,
-    listUser,
-    listAllUsers
+    userDetails,
+    allUsersDetails
 }

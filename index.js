@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const db = require('./db');
 const router = require('./routes/user');
 
-db.database();
+db.connectDatabase();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
